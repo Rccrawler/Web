@@ -1,0 +1,7 @@
+User-agent: Rccrawler
+Disallow: /netlify/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://spacio-web.netlify.app/
