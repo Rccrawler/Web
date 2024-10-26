@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Espacial Retro</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%);
+            color: #FFF;
+            overflow: hidden;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 20px;
+        }
+        .search-bar {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 4em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            opacity: 0.3;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+            text-align: center;
+        }
+        .button {
+            background-color: #ff0080;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 20px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .button:hover {
+            background-color: #ff80b2;
+            color: black;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        section {
+            margin: 50px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            animation: explosion 1.5s infinite;
+        }
+        @keyframes explosion {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(1.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+        .firework:nth-child(1) { background-color: hsl(0, 100%, 50%); left: 10%; top: 20%; animation-delay: 0s; }
+        .firework:nth-child(2) { background-color: hsl(60, 100%, 50%); left: 30%; top: 40%; animation-delay: 0.3s; }
+        .firework:nth-child(3) { background-color: hsl(120, 100%, 50%); left: 50%; top: 30%; animation-delay: 0.6s; }
+        .firework:nth-child(4) { background-color: hsl(180, 100%, 50%); left: 70%; top: 50%; animation-delay: 0.9s; }
+        .firework:nth-child(5) { background-color: hsl(240, 100%, 50%); left: 90%; top: 25%; animation-delay: 1.2s; }
+
+        /* Estilo del banner de cookies */
+        .cookies-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .cookies-banner p {
+            margin: 5px 0;
+            text-align: center;
+        }
+        .cookies-banner .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .cookies-banner button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #ff0080;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cookies-banner button:hover {
+            background: #ff80b2;
+        }
+        
+        /* Checkbox para el control del banner */
+        #cookies-checkbox {
+            display: none;
+        }
+        #cookies-checkbox:checked ~ .cookies-banner {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="firework" style="width: 20px; height: 20px;"></div>
+    <div class="firework" style="width: 25px; height: 25px;"></div>
+    <div class="firework" style="width: 30px; height: 30px;"></div>
+    <div class="firework" style="width: 35px; height: 35px;"></div>
+    <div class="firework" style="width: 40px; height: 40px;"></div>
+    <div class="navbar">
+        <div>
+            <a href="index.html">Inicio</a> <!-- Reemplaza con tu URL principal -->
+            <a href="sobre_nosotros.html">Sobre nosotros</a> <!-- Reemplaza con la URL correspondiente -->
+            <a href="contacto.html">Contacto</a> <!-- Reemplaza con la URL correspondiente -->
+        </div>
+        <input type="text" class="search-bar" placeholder="Buscar...">
+    </div>
+    <div class="content">
+        <h1>Bienvenido al Espacio Retro</h1>
+        <p>¡Explora el universo con estilo!</p>
+        <a class="button" href="#">¡Comienza tu aventura!</a>
+    </div>
+    <section>
+        <h2>Sobre Nosotros</h2>
+        <p>Descubre más sobre nuestra misión de explorar el espacio con un toque retro.</p>
+    </section>
+    <section>
+        <h2>Contacto</h2>
+        <p>Si tienes preguntas, no dudes en <a href="#">contactarnos</a>.</p>
+    </section>
+    <footer>
+        &copy; 2024 Espacio Retro. Todos los derechos reservados.
+    </footer>
+
+    <!-- Checkbox para controlar el banner -->
+    <input type="checkbox" id="cookies-checkbox">
+    <!-- Banner de cookies -->
+    <div class="cookies-banner">
+        <div class="cookies-banner__sign">Configuración de cookies</div>
+        <div class="cookies-banner__body">
+            <div class="cookies-banner__section">
+                <p>Nuestro sitio web utiliza cookies y registra su dirección IP con fines de accesibilidad, seguridad y gestión de su acceso a la red de telecomunicaciones. Puede deshabilitar la recopilación de datos y las cookies modificando la configuración de su navegador, pero el cambio podría afectar al funcionamiento de esta web. <a href="https://www.jetbrains.com/legal/docs/privacy/cookie-notice/">Más información</a>.</p>
+            </div>
+            <div class="cookies-banner__section">
+                <p class="cookies-banner__section__main-text">Con su consentimiento, JetBrains también puede utilizar cookies y su dirección IP para recopilar estadísticas individuales y ofrecerle ofertas personalizadas y anuncios sujetos a la <a href="https://www.jetbrains.com/legal/docs/privacy/privacy/">Política de privacidad</a> y a las <a href="https://www.jetbrains.com/legal/docs/company/useterms/">Condiciones de uso</a>. JetBrains puede utilizar <a href="https://www.jetbrains.com/legal/docs/privacy/third-parties/">servicios de terceros</a> para este fin. Puede modificar o retirar su consentimiento en cualquier momento desde la <a href="https://www.jetbrains.com/opt-out/">página de cancelación</a>.</p>
+                <div class="actions">
+                    <button class="cookies-banner__button" data-jetbrains-cookies-banner-action="ACCEPT_ALL">Aceptar todas</button>
+                    <button class="cookies-banner__button" data-jetbrains-cookies-banner-action="MANAGE_SETTINGS">Gestión de ajustes</button>
+                    <label for="cookies-checkbox" class="cookies-banner__close" aria-label="Cerrar banner de cookies" style="cursor: pointer;">Cerrar</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
