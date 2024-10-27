@@ -4,4 +4,4 @@ Disallow: /netlify/
 User-agent: *
 Allow: /
 
-Sitemap: https://spacio-web.netlify.app/
+Sitemap: https://espacio-web.netlify.app/
