@@ -66,11 +66,20 @@ body {
 
 h1 {
     text-align: center; /* Centra el texto del encabezado */
-    font-size: 3em;
+    font-size: 4em;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Añade sombra al texto para dar profundidad */
 }
 
 .vertical-hr { /*linea separadora horizontal*/
+    border: 0;
+    height: 5px; /* Altura de la línea */
+    background: linear-gradient(to right, rgba(0, 191, 255, 1), rgba(23, 22, 51, 1), rgba(0, 191, 255, 1)); /* Degradado horizontal */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.5); /* Sombras para darle profundidad */
+    transform: rotate(1deg); /* Ligera rotación para darle un toque dinámico */
+}
+
+.styled-hr {
     border: 0;
     height: 5px; /* Altura de la línea */
     background: linear-gradient(to right, rgba(0, 191, 255, 1), rgba(23, 22, 51, 1), rgba(0, 191, 255, 1)); /* Degradado horizontal */
