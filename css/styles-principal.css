@@ -3,7 +3,8 @@ body {
     font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%); /* Crea un fondo degradado radial que va de negro a un tono oscuro */
     color: #FFF;
-    overflow: hidden; /* Evita el desbordamiento, escondiendo cualquier contenido que se desborde del área visible */
+    /*overflow: hidden;  Evita el desbordamiento, escondiendo cualquier contenido que se desborde del área visible */
+    overflow: auto;
 }
 
 .navbar {
