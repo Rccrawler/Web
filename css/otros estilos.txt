@@ -82,3 +82,65 @@ h1 {
     background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
 }
+
+
+
+//sol
+    <div class="sol"></div>
+    <div class="rayo"></div>
+
+.sol {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #ffcc00, #ff8000);
+    box-shadow: 0 0 30px #ffcc00, 0 0 50px #ff8000;
+    animation: sol 10s linear infinite;
+  }
+  
+  @keyframes sol {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+  .rayo {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background-color: #fff;
+  transform-origin: bottom center;
+  animation: rayo 1s ease-in-out infinite alternate;
+}
+
+@keyframes rayo {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scaleX(1.5);
+    opacity: 0.8;
+  }
+}
+.sol {
+  background: radial-gradient(circle at 50% 50%, #ffcc00, #fff);
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), 0 0 50px rgba(255, 255, 0, 0.3);
+}
+.sol {
+  filter: brightness(120%);
+}
+@keyframes sol {
+  0% {
+    transform: translateX(-50%) rotate(0deg) translateY(0px);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg) translateY(50px);
+  }
+}
