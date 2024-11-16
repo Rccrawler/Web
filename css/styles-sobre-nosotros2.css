@@ -226,6 +226,48 @@ h1 {
     pointer-events: none; /* Permite clics a través de .stars */
 }
 
+
+
+/* Fondo general del contenedor */
+.fondo1 {
+    background-image: url('../img/vibrant_cosmic_scene.png'); /* Ruta correcta a tu PNG */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    color: white; /* Texto blanco para mejor contraste */
+    text-align: center;
+}
+
+/* Estilo de las columnas */
+.columns, h1 {
+    display: flex;
+    justify-content: center; /* Alineación central */
+    gap: 20px; /* Espacio entre columnas */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    border-radius: 10px;
+    transition: font-size 0.3s ease;
+}
+
+/* Individualmente cada columna */
+.column {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente claro */
+}
+
+/* Barra divisora */
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+
+
 .content {
     position: relative;
     z-index: 1; /* Asegura que el contenido esté por encima de los elementos de fondo */
