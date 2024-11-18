@@ -2,6 +2,7 @@ body {
     margin: 0;
     overflow: hidden; /* Evitar el desplazamiento del cuerpo */
     height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con 50% de transparencia */
 }
 
 .map {
@@ -12,7 +13,11 @@ body {
     height: 100vh; /* Ocupa el 100% de la altura de la ventana */
     overflow: auto; /* Permitir desplazamiento */
     border: 1px solid #ccc;
-    background-color: #f9f9f9; /* Color de fondo */
+    
+    /* Fondo de estrellas */
+    background: url('stardust.png') no-repeat center center fixed; /* Fondo de estrellas */
+    background-size: 100% 100%; /* Ajustar el tamaño de la imagen de fondo */
+    cursor: grab;
 }
 
 .node {
