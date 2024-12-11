@@ -1,7 +1,0 @@
-User-agent: Rccrawler
-Disallow: /netlify/
-
-User-agent: *
-Allow: /
-
-Sitemap: https://espacio-web.netlify.app/

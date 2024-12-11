@@ -1,0 +1,438 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%);
+    color: #FFF;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    display: flex;
+    flex-direction: column; /* Facilita el ajuste del contenido principal */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que el contenido llene la pantalla */
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 18px; /* Ajusta el tamaño de fuente en pantallas medianas */
+        padding: 10px; /* Agrega algo de espacio interior */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        text-align: center; /* Centra el texto para pantallas pequeñas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+        padding: 5px; /* Reduce los márgenes para pantallas muy pequeñas */
+    }
+}
+
+
+.navbar {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky; /* Mantiene la barra fija en la parte superior */
+    top: 0; /* Se asegura de que esté al borde superior */
+    z-index: 10; /* Garantiza que esté por encima del contenido principal */
+}
+
+.navbar a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Elimina el subrayado */
+    margin: 0 15px; /* Espaciado entre enlaces */
+    font-size: 18px; /* Tamaño base de los enlaces */
+    transition: color 0.3s; /* Suaviza el cambio de color */
+}
+
+.navbar a:hover {
+    color: #FFD700; /* Cambia el color al pasar el cursor */
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+    }
+    
+    .navbar a {
+        font-size: 16px; /* Reduce el tamaño de los enlaces */
+        margin: 5px 0; /* Ajusta el espaciado vertical */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 5px; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    .navbar a {
+        font-size: 14px; /* Reduce aún más el tamaño de los enlaces */
+        margin: 3px 0; /* Ajusta el espaciado para teléfonos */
+    }
+}
+
+
+.navbar button {
+    background-color: rgba(255, 0, 128, 0.8); /* Color vibrante semitransparente */
+    border: 2px solid #ff80b2; /* Borde brillante */
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 0 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 0, 128, 0.5);
+    transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #ff80b2; 
+    color: black; 
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 0.8); 
+    transform: scale(1.05); 
+}
+
+.navbar button:active {
+    background-color: #ff0080; 
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.6), 0 0 20px rgba(255, 0, 128, 0.6);
+    transform: scale(0.98); 
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 20px;
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.navbar a:hover {
+    color: #ff80b2; /* Cambia el color del enlace al pasar el cursor */
+}
+
+.search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    transition: box-shadow 0.3s ease, width 0.3s ease; /* Agrega transiciones suaves */
+}
+
+.search-bar:focus {
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.5); /* Resalta la barra al enfocarla */
+    width: 250px; /* Anima el ancho al enfocarse */
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .navbar button {
+        padding: 6px 12px; /* Reduce el tamaño del botón */
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .navbar a {
+        font-size: 18px; /* Reduce el tamaño del enlace */
+    }
+
+    .search-bar {
+        width: 150px; /* Reduce el tamaño inicial de la barra */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .navbar button {
+        width: 100%; /* Botones más anchos en pantallas pequeñas */
+        margin: 5px 0; /* Margen vertical para separación */
+    }
+
+    .navbar a {
+        font-size: 16px; /* Tamaño pequeño para enlaces */
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        width: 100%; /* Barra de búsqueda a lo ancho */
+    }
+}
+
+
+h1 {
+    text-align: center; /* Centra el texto del encabezado */
+    font-size: 4em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra sutil para dar profundidad */
+    margin: 20px 0; /* Espaciado alrededor del encabezado */
+    transition: font-size 0.3s ease; /* Suaviza el cambio de tamaño en pantallas pequeñas */
+}
+
+/* Estilo de la línea separadora horizontal */
+.vertical-hr, .styled-hr {
+    border: 0;
+    height: 5px; /* Altura de la línea */
+    background: linear-gradient(to right, rgba(0, 191, 255, 1), rgba(23, 22, 51, 1), rgba(0, 191, 255, 1)); /* Degradado horizontal */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.5); /* Sombra dinámica */
+    transform: rotate(1deg); /* Ligera rotación para darle un toque dinámico */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 3em; /* Reduce el tamaño del encabezado */
+    }
+
+    .vertical-hr, .styled-hr {
+        height: 3px; /* Reduce la altura de las líneas */
+        margin: 15px 0; /* Reduce el espaciado */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2.5em; /* Ajusta aún más el tamaño del encabezado para pantallas pequeñas */
+        margin: 15px 0; /* Espaciado más ajustado */
+    }
+
+    .vertical-hr, .styled-hr {
+        height: 2px; /* Reduce más la altura de las líneas */
+        margin: 10px 0; /* Ajuste adicional del espaciado */
+    }
+}
+
+.stars {
+    position: absolute; /* Posiciona el fondo de estrellas de manera absoluta */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/stardust.png') repeat; /* Utiliza una imagen de fondo que se repite */
+    opacity: 0.7;
+    pointer-events: none; /* Permite clics a través de .stars */
+}
+
+
+
+/* Fondo general del contenedor */
+.fondo1 {
+    background-image: url('../img/vibrant_cosmic_scene.png'); /* Ruta correcta a tu PNG */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    color: white; /* Texto blanco para mejor contraste */
+    text-align: center;
+}
+
+/* Estilo de las columnas */
+.columns, h1 {
+    display: flex;
+    justify-content: center; /* Alineación central */
+    gap: 20px; /* Espacio entre columnas */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    border-radius: 10px;
+    transition: font-size 0.3s ease;
+}
+
+/* Individualmente cada columna */
+.column {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente claro */
+}
+
+/* Barra divisora */
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+
+
+.content {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima de los elementos de fondo */
+    padding: 50px;
+    text-align: center; /* Centra el texto */
+    transition: padding 0.3s ease; /* Suaviza los cambios de padding en pantallas más pequeñas */
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 30px; /* Reduce el padding en pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 15px; /* Reduce aún más el padding en pantallas pequeñas */
+    }
+}
+
+.button {
+    background-color: #ff0080;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /* Permite que el botón tenga comportamiento de bloque en línea */
+    font-size: 20px;
+    margin: 20px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra del botón */
+}
+
+/* Efecto hover */
+.button:hover {
+    background-color: #ff80b2;
+    color: black;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Aumenta la sombra al pasar el cursor */
+}
+
+/* Responsividad para botones */
+@media screen and (max-width: 768px) {
+    .button {
+        padding: 12px 24px; /* Ajusta el tamaño del botón en pantallas medianas */
+        font-size: 18px; /* Reduce el tamaño del texto en pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .button {
+        padding: 10px 20px; /* Aún más pequeño en pantallas pequeñas */
+        font-size: 16px; /* Reducción del tamaño del texto */
+    }
+}
+
+section {
+    margin: 50px 0; /* Añade margen arriba y abajo entre secciones */
+}
+
+/* Responsividad para secciones */
+@media screen and (max-width: 768px) {
+    section {
+        margin: 30px 0; /* Reduce el margen en pantallas medianas */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsividad para el footer */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+    }
+}
+
+
+.firework {
+    position: absolute; /* Permite la posición absoluta para los fuegos artificiales */
+    border-radius: 50%;
+    opacity: 0;
+    animation: explosion 1.5s infinite;
+    pointer-events: none; /* Permite clics a través de .stars */
+}
+
+@keyframes explosion {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0); /* Reduce el tamaño a cero al final de la animación */
+        opacity: 0;
+    }
+}
+
+/* estigo de los fuegos artificiales */
+.firework:nth-child(1) { background-color: hsl(0, 100%, 50%); left: 10%; top: 20%; animation-delay: 0s; }
+.firework:nth-child(2) { background-color: hsl(60, 100%, 50%); left: 30%; top: 40%; animation-delay: 0.3s; }
+.firework:nth-child(3) { background-color: hsl(120, 100%, 50%); left: 50%; top: 30%; animation-delay: 0.6s; }
+.firework:nth-child(4) { background-color: hsl(180, 100%, 50%); left: 70%; top: 50%; animation-delay: 0.9s; }
+.firework:nth-child(5) { background-color: hsl(240, 100%, 50%); left: 90%; top: 25%; animation-delay: 1.2s; }
+
+
+/* Estilo del banner de cookies */
+.cookies-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil en la parte superior del banner */
+}
+
+.cookies-banner p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.cookies-banner .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.cookies-banner button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: #ff0080;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s; /* Transición suave del fondo al pasar el cursor */
+}
+
+.cookies-banner button:hover {
+    background: #ff80b2;
+}
+
+
+/* Checkbox para el control del banner */
+#cookies-checkbox {
+    display: none; /* Oculta el checkbox en el DOM */
+}
+
+#cookies-checkbox:checked ~ .cookies-banner {
+    display: none; /* Oculta el banner si el checkbox está marcado */
+}

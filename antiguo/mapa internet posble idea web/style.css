@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Evitar el desplazamiento del cuerpo */
+    height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con 50% de transparencia */
+}
+
+.map {
+    position: absolute; /* Cambiar a absolute */
+    top: 0; /* Asegurarse de que el mapa esté en la parte superior */
+    left: 0; /* Asegurarse de que el mapa esté a la izquierda */
+    width: 100vw; /* Ocupa el 100% del ancho de la ventana */
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    overflow: auto; /* Permitir desplazamiento */
+    border: 1px solid #ccc;
+    
+    /* Fondo de estrellas */
+    background: url('stardust.png') no-repeat center center fixed; /* Fondo de estrellas */
+    background-size: 100% 100%; /* Ajustar el tamaño de la imagen de fondo */
+    cursor: grab;
+}
+
+.node {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: lightblue;
+    border: 1px solid #007BFF;
+    transition: transform 0.2s;
+}
+
+.node:hover {
+    transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse */
+}

@@ -1,10 +1,30 @@
 body {
-    margin: 0; /* Elimina el margen predeterminado del navegador */
+    margin: 0;
     font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%); /* Crea un fondo degradado radial que va de negro a un tono oscuro */
     color: #FFF;
     /*overflow: hidden;  Evita el desbordamiento, escondiendo cualquier contenido que se desborde del área visible */
     overflow: auto;
+}
+
+a {
+  color: #FFD700; /* Amarillo dorado */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+  color: #FFEC8B; /* Amarillo más brillante al pasar el cursor */
+  text-shadow: 0 0 8px #FFD700, 0 0 12px #FFEC8B; /* Efecto brillante */
+}
+
+a:visited {
+    color: #ffa500; /* Color de enlaces visitados */
+}
+
+a:active {
+    color: #ffa500; /* Color al hacer clic */
 }
 
 .navbar {
@@ -32,7 +52,7 @@ body {
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
-    border-radius: 8px;
+    border-radius: 20px; /* Redondea las esquinas del botón */
     margin: 0 10px;
     box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 0, 128, 0.5); /* Sombra alrededor del botón para darle profundidad */
     transition: all 0.3s ease;
@@ -60,7 +80,7 @@ body {
 
 .search-bar {
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 20px; /* Redondea las esquinas del botón */
     border: none; /* Elimina el borde predeterminado */
     width: 200px;
 }
@@ -82,11 +102,16 @@ h1 {
     pointer-events: none; /* Permite clics a través de .stars */
 }
 
-.content {
-    position: relative;
-    z-index: 1; /* Asegura que el contenido esté por encima de los elementos de fondo */
-    padding: 50px;
-    text-align: center;
+.secion_terminos { /*secion para texto de las politicas*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: justify; /* Alinea el texto de manera más legible */
+    width: 80%; /* Establece un ancho fijo para mejorar el espaciado */
+    max-width: 1000px; /* Limita el ancho máximo para evitar que se estire demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 .button {
@@ -101,7 +126,7 @@ h1 {
     margin: 20px 2px;
     transition-duration: 0.4s; /* Duración de la transición para cambios de estilo */
     cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
-    border-radius: 10px;
+    border-radius: 20px; /* Redondea las esquinas del botón */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra del botón */
 }
 
@@ -111,8 +136,81 @@ h1 {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Aumenta la sombra al pasar el cursor */
 }
 
+/*-------------------------------buscador*/ 
+.input-container {
+  display: flex;
+  background: white;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #23272F 0%, #14161a 100%);
+  box-shadow: 5px 5px 10px #0e1013, -5px -5px 5px #383e4b;
+  padding: 0.15rem;
+  gap: 0.15rem;
+}
+
+.input-container input {
+  border-radius: 0.4rem 0 0 0.4rem;
+  background: #23272F;
+  box-shadow: inset 2.5px 2.5px 5px #0e1013, inset -2.5px -2.5px 5px #383e4b, 0px 0px 50px rgba(255, 212, 59, 0), 0px 0px 50px rgba(255, 102, 0, 0);
+  width: 50%; /* Ajuste proporcional */
+  flex-basis: 37.5%;
+  padding: 0.5rem;
+  border: none;
+  border: 0.5px solid transparent;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container input:focus {
+  border: 0.5px solid #FFD43B;
+  outline: none;
+  box-shadow: inset 0px 0px 5px rgba(255, 102, 0, 0.5), inset 0px 0px 5px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 102, 0, 0.5);
+}
+
+.input-container button {
+  flex-basis: 12.5%;
+  padding: 0.5rem;
+  background-color: rgba(255, 0, 128, 0.8); /* Usamos el mismo color de fondo que en navbar */
+  border: 2px solid #ff80b2; /* Mismo borde brillante */
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  border-radius: 0 0.5rem 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.input-container button:hover {
+  background-color: rgba(255, 0, 128, 0.8); /* Usamos el mismo color de fondo que en navbar */
+  box-shadow: 0px 0px 50px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 102, 0, 0.5);
+}
+
+@media (max-width: 70px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input {
+    border-radius: 0.4rem;
+  }
+
+  .input-container button {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+  }
+}
+
+/*-------------------------------buscador--fin*/ 
+
 section {
     margin: 50px 0; /* Añade margen arriba y abajo entre secciones */
+}
+
+.content {/*               boton y titulo comienza abentura*/
+    text-align: center;
+}
+
+.mensajes-inicio{
+    text-align: center;
 }
 
 footer {
@@ -121,6 +219,9 @@ footer {
     background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para el pie de página */
     position: relative; /* Posiciona el pie de página de manera relativa */
     z-index: 1;
+    position: fixed;
+    bottom: 0; 
+    width: 100%;
 }
 
 .firework {
@@ -186,7 +287,7 @@ footer {
     background: #ff0080;
     border: none;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 20px;/* Redondea las esquinas del botón */
     cursor: pointer;
     transition: background 0.3s; /* Transición suave del fondo al pasar el cursor */
 }
@@ -203,4 +304,47 @@ footer {
 
 #cookies-checkbox:checked ~ .cookies-banner {
     display: none; /* Oculta el banner si el checkbox está marcado */
+}
+
+
+/* Estilo general de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+    height: 12px; /* Alto de la barra */
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Fondo oscuro */
+    border-radius: 10px;
+}
+
+/* Thumb (parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: #007BFF; /* Color principal */
+    border-radius: 10px;
+    border: 2px solid #2c2c2c; /* Espacio entre thumb y track */
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Más oscuro al pasar el mouse */
+}
+
+/* Específico para Firefox */
+scrollbar-color: #007BFF #2c2c2c; /* Thumb y fondo */
+scrollbar-width: auto; /* Anchura de la barra */
+
+/* Si quieres personalizar para una sección específica */
+#map-container::-webkit-scrollbar {
+    width: 15px;
+}
+
+#map-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    border-radius: 20px;
+}
+
+#map-container::-webkit-scrollbar-track {
+    background: #1c1c1c;
 }

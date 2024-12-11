@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página Espacial Reto</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styles-principal.css'>
+    <script src='js/index.js'></script>
+    <link rel="icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
+    <link rel="shortcut icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
+</head>
+
+<body>
+    <div class="stars"></div>
+    <div class="firework" style="width: 20px; height: 20px;"></div>
+    <div class="firework" style="width: 25px; height: 25px;"></div>
+    <div class="firework" style="width: 30px; height: 30px;"></div>
+    <div class="firework" style="width: 35px; height: 35px;"></div>
+    <div class="firework" style="width: 40px; height: 40px;"></div>
+    
+    <header> <!-- cabecera -->
+        <div class="navbar">
+            <div>
+                <button onclick="window.location.href='https://espacio-web.netlify.app/index.html';">Inicio</button>
+                <button onclick="window.location.href='https://espacio-web.netlify.app/Sobre_nosotros.html';">Sobre nosotros</button>
+                <button onclick="window.location.href='https://espacio-web.netlify.app/contacto.html';">Contacto</button>
+                <button onclick="window.location.href='https://espacio-web.netlify.app/Proyecto.html';">Proyecto</button>
+            </div>
+            <input type="text" class="search-bar" placeholder="Buscar...">
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>Bienvenido al Espacio Reto</h1>
+        <h2>La nueva manera de observar la red</h2>
+        <p>¡Explora el universo con estilo!</p>
+        <a class="button" href="#">¡Comienza tu aventura!</a>
+    </div>
+    <section>
+        <h1>Web under construction launch date: 01/01/2025 🏗️</h1>
+        <h2>Sobre Nosotros</h2>
+        <p>Descubre más sobre nuestra misión de explorar el espacio con un toque retro.</p>
+    </section>
+    <section>
+        <h2>Contacto</h2>
+        <p>Si tienes preguntas, no dudes en <a href="#">contactarnos</a>.</p>
+    </section>
+    
+    <footer> <!-- pie de web -->
+        &copy; 2024 Espacio Retro. Todos los derechos  GNU GENERAL PUBLIC LICENSE con consentimiento.  created by Rccrawler
+    </footer>
+
+    <!-- Checkbox para controlar el banner -->
+    <input type="checkbox" id="cookies-checkbox">
+    <!-- Banner de cookies -->
+    <div class="cookies-banner">
+        <div class="cookies-banner__sign">Configuración de cookies</div>
+        <div class="cookies-banner__body">
+            <div class="cookies-banner__section">
+                <p>Nuestro sitio web utiliza cookies y registra su dirección IP con fines de accesibilidad, seguridad y gestión de su acceso a la red de telecomunicaciones. <a href="https://espacio-web.netlify.app/cookis_documentacion.html">Más información</a>.</p>
+            </div>
+            <div class="cookies-banner__section">
+                <p class="cookies-banner__section__main-text">Con su consentimiento, espacio-web también puede utilizar cookies y su dirección IP para recopilar estadísticas individuales y ofrecerle ofertas personalizadas y anuncios sujetos a la <a href="https://espacio-web.netlify.app/privacy.html">Política de privacidad</a> y a las <a href="https://espacio-web.netlify.app/useterms.html">Condiciones de uso</a>. espacio-web puede utilizar <a href="https://espacio-web.netlify.app/privacy.html">servicios de terceros</a> para este fin. </a>.</p>
+                <div class="actions">
+                    <button class="cookies-banner__button" espacio-web-cookies-banner-action="ACCEPT_ALL">Aceptar todas</button>
+                    <!--<button class="cookies-banner__button" espacio-web-cookies-banner-action="MANAGE_SETTINGS">Gestión de ajustes</button> -->
+                    <label for="cookies-checkbox" class="cookies-banner__close" aria-label="Cerrar banner de cookies" style="cursor: pointer;">Cerrar</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

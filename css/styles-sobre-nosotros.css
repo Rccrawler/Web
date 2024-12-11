@@ -1,91 +1,233 @@
 body {
-    margin: 0; /* Elimina el margen predeterminado del navegador */
-    font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
-    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%); /* Crea un fondo degradado radial que va de negro a un tono oscuro */
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(23, 22, 51, 1) 50%, rgba(0,0,0,1) 100%);
     color: #FFF;
-    overflow: hidden; /* Evita el desbordamiento, escondiendo cualquier contenido que se desborde del área visible */
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    display: flex;
+    flex-direction: column; /* Facilita el ajuste del contenido principal */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que el contenido llene la pantalla */
 }
+
+a {
+  color: #FFD700; /* Amarillo dorado */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+a:hover {
+  color: #FFEC8B; /* Amarillo más brillante al pasar el cursor */
+  text-shadow: 0 0 8px #FFD700, 0 0 12px #FFEC8B; /* Efecto brillante */
+}
+
+a:visited {
+    color: #ffa500; /* Color de enlaces visitados */
+}
+
+a:active {
+    color: #ffa500; /* Color al hacer clic */
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 18px; /* Ajusta el tamaño de fuente en pantallas medianas */
+        padding: 10px; /* Agrega algo de espacio interior */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        text-align: center; /* Centra el texto para pantallas pequeñas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+        padding: 5px; /* Reduce los márgenes para pantallas muy pequeñas */
+    }
+}
+
 
 .navbar {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
     padding: 10px;
-    display: flex; /* Usa flexbox para organizar los elementos hijos en una fila */
+    display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea sutil en el borde inferior */
-    /*anterior: 
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 10;
-    */
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky; /* Mantiene la barra fija en la parte superior */
+    top: 0; /* Se asegura de que esté al borde superior */
+    z-index: 10; /* Garantiza que esté por encima del contenido principal */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #FFD700; /* Cambia el color al pasar el cursor */
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+    }
+    
+    .navbar a {
+        font-size: 16px; /* Reduce el tamaño de los enlaces */
+        margin: 5px 0; /* Ajusta el espaciado vertical */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 5px; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    .navbar a {
+        font-size: 14px; /* Reduce aún más el tamaño de los enlaces */
+        margin: 3px 0; /* Ajusta el espaciado para teléfonos */
+    }
 }
 
 .navbar button {
-    background-color: rgba(255, 0, 128, 0.8); /* Color vibrante semitransparente */
-    border: 2px solid #ff80b2; /* Borde brillante */
+    background-color: rgba(255, 0, 128, 0.8);
+    border: 2px solid #ff80b2;
     color: #fff;
     padding: 8px 16px;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
-    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
-    border-radius: 8px;
+    cursor: pointer;
+    border-radius: 20px;
     margin: 0 10px;
-    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 0, 128, 0.5); /* Sombra alrededor del botón para darle profundidad */
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
     transition: all 0.3s ease;
 }
 
-.navbar button:hover {
-    background-color: #ff80b2; /* Color más claro al pasar el cursor */
-    color: black; /* Cambia el color del texto a negro al pasar el cursor */
-    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 0.8); /* Aumenta la sombra al pasar el cursor */
-    transform: scale(1.05); /* Agrandar ligeramente */
+.navbar button.active {
+    background-color: #ff80b2;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
 }
 
-.navbar button:active {
-    background-color: #ff0080; /* Color más intenso al hacer clic */
-    box-shadow: 0 0 10px rgba(255, 0, 128, 0.6), 0 0 20px rgba(255, 0, 128, 0.6);
-    transform: scale(0.98); /* Efecto de presión */
+.navbar button:hover {
+    background-color: #ff80b2;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
+    transform: scale(1.05);
 }
 
 .navbar a {
     color: #fff;
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    text-decoration: none;
     margin: 0 15px;
     font-size: 20px;
 }
 
 .search-bar {
-    padding: 5px;
-    border-radius: 5px;
-    border: none; /* Elimina el borde predeterminado */
-    width: 200px;
+    padding: 10px; /* Espaciado interno */
+    width: 200px; /* Ancho del campo */
+    height: 6px; /* Alto del campo */
+    border-radius: 20px; /* Borde redondeado proporcional */
+    transition: box-shadow 0.3s ease, width 0.3s ease; /* Transiciones suaves */
 }
+
+
+.search-bar:focus {
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.5); /* Resalta la barra al enfocarla */
+    width: 250px; /* Anima el ancho al enfocarse */
+}
+
+/* Responsividad */
+@media screen and (max-width: 480px) {
+    .navbar button {
+        padding: 10px 15px;  /* Botón más pequeño en pantallas muy pequeñas */
+        font-size: 14px;
+    }
+
+    .navbar a {
+        font-size: 18px; /* Reduce el tamaño del enlace */
+    }
+
+    .search-bar {
+        width: 150px; /* Reduce el tamaño inicial de la barra */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .navbar button {
+        width: 100%; /* Botones más anchos en pantallas pequeñas */
+        margin: 5px 0; /* Margen vertical para separación */
+        border-radius: 20%; /* Hace los bordes redondos */
+    }
+
+    .navbar a {
+        font-size: 16px; /* Tamaño pequeño para enlaces */
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        width: 100%; /* Barra de búsqueda a lo ancho */
+    }
+}
+
 
 h1 {
     text-align: center; /* Centra el texto del encabezado */
     font-size: 4em;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Añade sombra al texto para dar profundidad */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra sutil para dar profundidad */
+    margin: 20px 0; /* Espaciado alrededor del encabezado */
+    transition: font-size 0.3s ease; /* Suaviza el cambio de tamaño en pantallas pequeñas */
 }
 
-.vertical-hr { /*linea separadora horizontal*/
+/* Estilo de la línea separadora horizontal */
+.vertical-hr, .styled-hr {
     border: 0;
     height: 5px; /* Altura de la línea */
     background: linear-gradient(to right, rgba(0, 191, 255, 1), rgba(23, 22, 51, 1), rgba(0, 191, 255, 1)); /* Degradado horizontal */
     margin: 20px 0; /* Espaciado arriba y abajo */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.5); /* Sombras para darle profundidad */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.5); /* Sombra dinámica */
     transform: rotate(1deg); /* Ligera rotación para darle un toque dinámico */
 }
 
-.styled-hr {
-    border: 0;
-    height: 5px; /* Altura de la línea */
-    background: linear-gradient(to right, rgba(0, 191, 255, 1), rgba(23, 22, 51, 1), rgba(0, 191, 255, 1)); /* Degradado horizontal */
-    margin: 20px 0; /* Espaciado arriba y abajo */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.5); /* Sombras para darle profundidad */
-    transform: rotate(1deg); /* Ligera rotación para darle un toque dinámico */
+/* Ajustes para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 3em; /* Reduce el tamaño del encabezado */
+    }
+
+    .vertical-hr, .styled-hr {
+        height: 3px; /* Reduce la altura de las líneas */
+        margin: 15px 0; /* Reduce el espaciado */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2.5em; /* Ajusta aún más el tamaño del encabezado para pantallas pequeñas */
+        margin: 15px 0; /* Espaciado más ajustado */
+    }
+
+    .vertical-hr, .styled-hr {
+        height: 2px; /* Reduce más la altura de las líneas */
+        margin: 10px 0; /* Ajuste adicional del espaciado */
+    }
 }
 
 .stars {
@@ -95,15 +237,82 @@ h1 {
     width: 100%;
     height: 100%;
     background: url('../img/stardust.png') repeat; /* Utiliza una imagen de fondo que se repite */
-    opacity: 0.3;
+    opacity: 0.7;
     pointer-events: none; /* Permite clics a través de .stars */
 }
+
+
+
+/* Fondo general del contenedor */
+.fondo1 {
+    background-image: url('../img/vibrant_cosmic_scene.png'); /* Ruta correcta a tu PNG */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    color: white; /* Texto blanco para mejor contraste */
+    text-align: center;    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: justify; /* Alinea el texto de manera más legible */
+    width: 80%; /* Establece un ancho fijo para mejorar el espaciado */
+    max-width: 1000px; /* Limita el ancho máximo para evitar que se estire demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Estilo de las columnas */
+.columns, h1 {
+    display: flex;
+    justify-content: center; /* Alineación central */
+    gap: 20px; /* Espacio entre columnas */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    border-radius: 10px;
+    transition: font-size 0.3s ease;
+    text-align: justify; /* Justificar el texto */
+}
+
+/* Individualmente cada columna */
+.column {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente claro */
+    text-align: justify; /* Justificar el texto */
+}
+
+/* Barra divisora */
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+
 
 .content {
     position: relative;
     z-index: 1; /* Asegura que el contenido esté por encima de los elementos de fondo */
     padding: 50px;
-    text-align: center;
+    text-align: center; /* Centra el texto */
+    transition: padding 0.3s ease; /* Suaviza los cambios de padding en pantallas más pequeñas */
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 30px; /* Reduce el padding en pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 15px; /* Reduce aún más el padding en pantallas pequeñas */
+    }
 }
 
 .button {
@@ -116,29 +325,63 @@ h1 {
     display: inline-block; /* Permite que el botón tenga comportamiento de bloque en línea */
     font-size: 20px;
     margin: 20px 2px;
-    transition-duration: 0.4s; /* Duración de la transición para cambios de estilo */
-    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
-    border-radius: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 20px; /* Redondea las esquinas del botón */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra del botón */
 }
 
+/* Efecto hover */
 .button:hover {
     background-color: #ff80b2;
-    color: black; /* Cambia el color del texto a negro al pasar el cursor */
+    color: black;
     box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Aumenta la sombra al pasar el cursor */
+    border-radius: 20px; /* Redondea las esquinas del botón */
+}
+
+/* Responsividad para botones */
+@media screen and (max-width: 768px) {
+    .button {
+        padding: 12px 24px; /* Ajusta el tamaño del botón en pantallas medianas */
+        font-size: 18px; /* Reduce el tamaño del texto en pantallas medianas */
+        border-radius: 20px; /* Redondea las esquinas del botón */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .button {
+        padding: 10px 20px; /* Aún más pequeño en pantallas pequeñas */
+        font-size: 16px; /* Reducción del tamaño del texto */
+        border-radius: 20px; /* Redondea las esquinas del botón */
+    }
 }
 
 section {
     margin: 50px 0; /* Añade margen arriba y abajo entre secciones */
 }
 
+/* Responsividad para secciones */
+@media screen and (max-width: 768px) {
+    section {
+        margin: 30px 0; /* Reduce el margen en pantallas medianas */
+    }
+}
+
 footer {
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para el pie de página */
-    position: relative; /* Posiciona el pie de página de manera relativa */
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
     z-index: 1;
 }
+
+/* Responsividad para el footer */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+    }
+}
+
 
 .firework {
     position: absolute; /* Permite la posición absoluta para los fuegos artificiales */
@@ -169,6 +412,7 @@ footer {
 .firework:nth-child(3) { background-color: hsl(120, 100%, 50%); left: 50%; top: 30%; animation-delay: 0.6s; }
 .firework:nth-child(4) { background-color: hsl(180, 100%, 50%); left: 70%; top: 50%; animation-delay: 0.9s; }
 .firework:nth-child(5) { background-color: hsl(240, 100%, 50%); left: 90%; top: 25%; animation-delay: 1.2s; }
+
 
 /* Estilo del banner de cookies */
 .cookies-banner {
@@ -205,6 +449,7 @@ footer {
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    border-radius: 20px; /* Hace los bordes redondos */
     transition: background 0.3s; /* Transición suave del fondo al pasar el cursor */
 }
 
@@ -220,4 +465,112 @@ footer {
 
 #cookies-checkbox:checked ~ .cookies-banner {
     display: none; /* Oculta el banner si el checkbox está marcado */
+}
+
+/*-------------------------------buscador*/ 
+.input-container {
+  display: flex;
+  background: white;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #23272F 0%, #14161a 100%);
+  box-shadow: 5px 5px 10px #0e1013, -5px -5px 5px #383e4b;
+  padding: 0.15rem;
+  gap: 0.15rem;
+}
+
+.input-container input {
+  border-radius: 0.4rem 0 0 0.4rem;
+  background: #23272F;
+  box-shadow: inset 2.5px 2.5px 5px #0e1013, inset -2.5px -2.5px 5px #383e4b, 0px 0px 50px rgba(255, 212, 59, 0), 0px 0px 50px rgba(255, 102, 0, 0);
+  width: 50%; /* Ajuste proporcional */
+  flex-basis: 37.5%;
+  padding: 0.5rem;
+  border: none;
+  border: 0.5px solid transparent;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container input:focus {
+  border: 0.5px solid #FFD43B;
+  outline: none;
+  box-shadow: inset 0px 0px 5px rgba(255, 102, 0, 0.5), inset 0px 0px 5px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 102, 0, 0.5);
+}
+
+.input-container button {
+  flex-basis: 12.5%;
+  padding: 0.5rem;
+  background-color: rgba(255, 0, 128, 0.8); /* Usamos el mismo color de fondo que en navbar */
+  border: 2px solid #ff80b2; /* Mismo borde brillante */
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  border-radius: 0 0.5rem 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.input-container button:hover {
+  background-color: rgba(255, 0, 128, 0.8); /* Usamos el mismo color de fondo que en navbar */
+  box-shadow: 0px 0px 50px rgba(255, 212, 59, 0.5), 0px 0px 50px rgba(255, 102, 0, 0.5);
+}
+
+@media (max-width: 70px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input {
+    border-radius: 0.4rem;
+  }
+
+  .input-container button {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+  }
+}
+
+/*-------------------------------buscador--fin*/ 
+
+
+/* Estilo general de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+    height: 12px; /* Alto de la barra */
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Fondo oscuro */
+    border-radius: 10px;
+}
+
+/* Thumb (parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: #007BFF; /* Color principal */
+    border-radius: 10px;
+    border: 2px solid #2c2c2c; /* Espacio entre thumb y track */
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Más oscuro al pasar el mouse */
+}
+
+/* Específico para Firefox */
+scrollbar-color: #007BFF #2c2c2c; /* Thumb y fondo */
+scrollbar-width: auto; /* Anchura de la barra */
+
+/* Si quieres personalizar para una sección específica */
+#map-container::-webkit-scrollbar {
+    width: 15px;
+}
+
+#map-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    border-radius: 20px;
+}
+
+#map-container::-webkit-scrollbar-track {
+    background: #1c1c1c;
 }

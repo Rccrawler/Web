@@ -1,75 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Página Espacial Reto</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/styles-principal.css'>
-    <script src='js/index.js'></script>
-    <link rel="icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
-    <link rel="shortcut icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
-</head>
-
-<body>
-    <div class="stars"></div>
-    <div class="firework" style="width: 20px; height: 20px;"></div>
-    <div class="firework" style="width: 25px; height: 25px;"></div>
-    <div class="firework" style="width: 30px; height: 30px;"></div>
-    <div class="firework" style="width: 35px; height: 35px;"></div>
-    <div class="firework" style="width: 40px; height: 40px;"></div>
-    
-    <header> <!-- cabecera -->
-        <div class="navbar">
-            <div>
-                <button onclick="window.location.href='https://espacio-web.netlify.app/index.html';">Inicio</button>
-                <button onclick="window.location.href='https://espacio-web.netlify.app/Sobre_nosotros.html';">Sobre nosotros</button>
-                <button onclick="window.location.href='https://espacio-web.netlify.app/contacto.html';">Contacto</button>
-                <button onclick="window.location.href='https://espacio-web.netlify.app/Proyecto.html';">Proyecto</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Proyecto</title>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/style-proyect.css'>
+        <link rel="icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
+        <link rel="shortcut icon" href="img/x-icon-recortado.png" type="img/x-icon-recortado.png">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-22J0LKBDNV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-22J0LKBDNV');
+        </script>
+    </head>
+    <body>
+        <!-- Contenedor del popup -->
+        <input type="checkbox" id="popup-toggle">
+        <div id="popup">
+            <div id="popup-content">
+                <b><p>Bienvenido al mapa interactivo, clic en un enlace para ir a la URL</p>
+                <p>Este es un proyecto revolucionario, el que permitiría saber por dónde viaja nuestra información, por dónde pasa visualizando todos los nodos y rutas en este momento. Se está completando el mapa con ayuda de colaboradores</p>
+                <p>Si tienes una página web, centro de datos, etc.. Contáctanos para que la publiquemos en el mapa y así completar los nodos de Internet</p>
+                <p>También se muestran nuestros trabajos, sitios web y aplicaciones desarrolladas por nosotros.</p></b>
+                <label for="popup-toggle">Cerrar</label>
             </div>
-            <input type="text" class="search-bar" placeholder="Buscar...">
         </div>
-    </header>
 
-    <div class="content">
-        <h1>Bienvenido al Espacio Reto</h1>
-        <h2>La nueva manera de observar la red</h2>
-        <p>¡Explora el universo con estilo!</p>
-        <a class="button" href="#">¡Comienza tu aventura!</a>
-    </div>
-    <section>
-        <h1>Web under construction launch date: 01/01/2025 🏗️</h1>
-        <h2>Sobre Nosotros</h2>
-        <p>Descubre más sobre nuestra misión de explorar el espacio con un toque retro.</p>
-    </section>
-    <section>
-        <h2>Contacto</h2>
-        <p>Si tienes preguntas, no dudes en <a href="#">contactarnos</a>.</p>
-    </section>
-    
-    <footer> <!-- pie de web -->
-        &copy; 2024 Espacio Retro. Todos los derechos  GNU GENERAL PUBLIC LICENSE con consentimiento.  created by Rccrawler
-    </footer>
 
-    <!-- Checkbox para controlar el banner -->
-    <input type="checkbox" id="cookies-checkbox">
-    <!-- Banner de cookies -->
-    <div class="cookies-banner">
-        <div class="cookies-banner__sign">Configuración de cookies</div>
-        <div class="cookies-banner__body">
-            <div class="cookies-banner__section">
-                <p>Nuestro sitio web utiliza cookies y registra su dirección IP con fines de accesibilidad, seguridad y gestión de su acceso a la red de telecomunicaciones. <a href="https://espacio-web.netlify.app/cookis_documentacion.html">Más información</a>.</p>
-            </div>
-            <div class="cookies-banner__section">
-                <p class="cookies-banner__section__main-text">Con su consentimiento, espacio-web también puede utilizar cookies y su dirección IP para recopilar estadísticas individuales y ofrecerle ofertas personalizadas y anuncios sujetos a la <a href="https://espacio-web.netlify.app/privacy.html">Política de privacidad</a> y a las <a href="https://espacio-web.netlify.app/useterms.html">Condiciones de uso</a>. espacio-web puede utilizar <a href="https://espacio-web.netlify.app/privacy.html">servicios de terceros</a> para este fin. </a>.</p>
-                <div class="actions">
-                    <button class="cookies-banner__button" espacio-web-cookies-banner-action="ACCEPT_ALL">Aceptar todas</button>
-                    <!--<button class="cookies-banner__button" espacio-web-cookies-banner-action="MANAGE_SETTINGS">Gestión de ajustes</button> -->
-                    <label for="cookies-checkbox" class="cookies-banner__close" aria-label="Cerrar banner de cookies" style="cursor: pointer;">Cerrar</label>
+        <div id="map-container">
+            <!-- Contenedor de contenido, que incluye el mapa y los nodos -->
+            <div id="content">
+                <!-- Mapa de fondo -->
+                <div id="map"></div>
+
+                <!-- Nodos -->
+                <div id="nodes-container">
+                    <a href="http://service.com" target="_blank">
+                        <div class="node" style="width: 80px; height: 80px; left: 800px; top: 500px;">
+                            192.168.1.2<br>service.com
+                        </div>
+                    </a>
+                    <a href="http://another-example.com" target="_blank">
+                        <div class="node" style="width: 60px; height: 60px; left: 1200px; top: 600px;">
+                            192.168.1.3<br>another-example.com
+                        </div>
+                    </a>
+                    <!-- Nodo Google -->
+                    <a href="https://cloud.google.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1200px; top: 1000px;">
+                            Google Cloud<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Amazon Web Services -->
+                    <a href="https://aws.amazon.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1100px; top: 900px;">
+                            AWS<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Microsoft Azure -->
+                    <a href="https://azure.microsoft.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1300px; top: 1100px;">
+                            Microsoft Azure<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Facebook -->
+                    <a href="https://www.facebook.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1620px; top: 900px;">
+                            Facebook<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Equinix -->
+                    <a href="https://www.equinix.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2450px; top: 740px;">
+                            Equinix<br>
+                        </div>
+                    </a>
+                    <!-- Nodo China Telecom -->
+                    <a href="https://www.chinatelecomglobal.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 4200px; top: 800px;">
+                            China Telecom<br>China
+                        </div>
+                    </a>
+                    <!-- Nodo NTT Communications -->
+                    <a href="https://www.ntt.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2630px; top: 800px;">
+                            NTT Communications<br>
+                        </div>
+                    </a>
+                    <!-- Nodo OVHcloud -->
+                    <a href="https://www.ovhcloud.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2680px; top: 950px;">
+                            OVHcloud<br>France
+                        </div>
+                    </a>
+                    <!-- Nodo Telefónica -->
+                    <a href="https://www.telefonica.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2455px; top: 955px;">
+                            Telefónica<br>Spain
+                        </div>
+                    </a>
+                    <!-- Nodo Telenor -->
+                    <a href="https://www.telenor.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2680px; top: 600px;">
+                            Telenor<br>Norway
+                        </div>
+                    </a>
+                    <!-- Nodo Comcast -->
+                    <a href="https://www.comcast.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1500px; top: 950px;">
+                            Comcast<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Verizon -->
+                    <a href="https://www.verizon.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1200px; top: 930px;">
+                            Verizon<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo AT&T -->
+                    <a href="https://www.att.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1240px; top: 1050px;">
+                            AT&T<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo CenturyLink -->
+                    <a href="https://www.centurylink.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1200px; top: 870px;">
+                            CenturyLink<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Tata Communications -->
+                    <a href="https://www.tatacommunications.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 3500px; top: 1300px;">
+                            Tata Communications<br>India
+                        </div>
+                    </a>
+                    <!-- Nodo Orange -->
+                    <a href="https://www.orange.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 2505px; top: 820px;">
+                            Orange<br>France
+                        </div>
+                    </a>
+                    <!-- Nodo Naver Cloud -->
+                    <a href="https://www.navercorp.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 4150px; top: 1000px;">
+                            Naver Cloud<br>South Korea
+                        </div>
+                    </a>
+                    <!-- Nodo SoftBank -->
+                    <a href="https://www.softbank.jp/en/" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 4220px; top: 1030px;">
+                            SoftBank<br>Japan
+                        </div>
+                    </a>
+                    <!-- Nodo Level 3 Communications -->
+                    <a href="https://www.lumen.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1520px; top: 1025px;">
+                            Lumen<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Google Fiber -->
+                    <a href="https://fiber.google.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 1370px; top: 1000px;">
+                            Google Fiber<br>US
+                        </div>
+                    </a>
+                    <!-- Nodo Baidu Cloud -->
+                    <a href="https://cloud.baidu.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 4000px; top: 900px;">
+                            Baidu Cloud<br>China
+                        </div>
+                    </a>
+                    <!-- Nodo Alibaba Cloud -->
+                    <a href="https://www.alibabacloud.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 3890px; top: 1220px;">
+                            Alibaba Cloud<br>Tailandia
+                        </div>
+                    </a>
+                    <!-- Nodo Cloudflare -->
+                    <a href="https://www.cloudflare.com" target="_blank">
+                        <div class="node" style="width: 50px; height: 50px; left: 940px; top: 980px;">
+                            Cloudflare<br>US
+                        </div>
+                    </a>
+
                 </div>
+
+
             </div>
         </div>
-    </div>
 
-</body>
+
+    </body>
 </html>

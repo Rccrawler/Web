@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+/* Contenedor principal con barras de desplazamiento */
+#map-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite desplazamiento */
+}
+
+/* Contenedor para sincronizar mapa y nodos */
+#content {
+    position: relative;
+    width: 5376px; /* Tamaño del mapa */
+    height: 3072px; /* Tamaño del mapa */
+}
+
+/* Mapa de fondo */
+#map {
+    background: url('../img/world-map-image-editado.png') no-repeat center center;
+    background-size: cover;
+    width: 5376px;
+    height: 3072px;
+}
+
+/* Nodos */
+.node {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: lightblue;
+    border: 1px solid #007BFF;
+    color: black;
+    font-size: 12px;
+    z-index: 1;
+    transition: transform 0.2s;
+}
+
+.node:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor de nodos */
+#nodes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos del popup (modal) */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Caja del contenido del popup */
+#popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
+}
+
+/* Botón para cerrar */
+#popup-content label {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
+}
+
+#popup-content label:hover {
+    background-color: #0056b3;
+}
+
+/* Checkbox oculto */
+#popup-toggle {
+    display: none;
+}
+
+/* Checkbox marcado oculta el popup */
+#popup-toggle:checked + #popup {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.p{
+    font-family: 'Courier New', Courier, monospace; /* Define la fuente del texto */
+    font-size: 16px;
+}
+
+
+/* Estilo general de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+    height: 12px; /* Alto de la barra */
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Fondo oscuro */
+    border-radius: 10px;
+}
+
+/* Thumb (parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: #007BFF; /* Color principal */
+    border-radius: 10px;
+    border: 2px solid #2c2c2c; /* Espacio entre thumb y track */
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Más oscuro al pasar el mouse */
+}
+
+/* Específico para Firefox */
+scrollbar-color: #007BFF #2c2c2c; /* Thumb y fondo */
+scrollbar-width: auto; /* Anchura de la barra */
+
+/* Si quieres personalizar para una sección específica */
+#map-container::-webkit-scrollbar {
+    width: 15px;
+}
+
+#map-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    border-radius: 20px;
+}
+
+#map-container::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}

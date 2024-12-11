@@ -1,0 +1,146 @@
+Estilo 1: Galaxia Brillante
+css
+body {
+    background: radial-gradient(circle, #0b0c1f 0%, #141a3a 50%, #16163b 100%);
+    color: #fff;
+}
+
+h1 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.button {
+    background: linear-gradient(90deg, #ff0080, #ff8c00);
+    box-shadow: 0 0 15px #ff0080, 0 0 20px #ff8c00;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 10px rgba(255, 0, 255, 0.5);
+}
+
+Estilo 2: Espacio Neón
+css
+body {
+    background: linear-gradient(135deg, #0a0a2c, #1c1c4a);
+    color: #fff;
+}
+
+h1 {
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(255, 0, 255, 0.7);
+}
+
+.button {
+    background: linear-gradient(to right, #0f0, #0ff);
+    box-shadow: 0 0 15px #0ff, 0 0 30px #0f0;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.5);
+}
+
+Estilo 3: Estrellas y Planetas
+css
+body {
+    background: radial-gradient(circle at 50% 50%, #08070f, #1a1a2e);
+    background-image: url('path/to/stars.png'); /* Agrega una imagen de fondo con estrellas */
+    color: #e0e0e0;
+}
+
+h1 {
+    text-shadow: 0 0 15px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 0, 255, 0.5);
+}
+
+.button {
+    background-color: #8c8cfc;
+    box-shadow: 0 0 10px #8c8cfc, 0 0 20px #8c8cfc;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+Estilo 4: Espacio Cósmico
+css
+body {
+    background: linear-gradient(to bottom, #001133, #002244);
+    color: #fff;
+}
+
+h1 {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.5);
+}
+
+.button {
+    background: linear-gradient(to right, #ff4b1f, #1fddff);
+    box-shadow: 0 0 25px rgba(255, 75, 75, 0.5), 0 0 50px rgba(0, 221, 255, 0.5);
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+}
+
+
+
+//sol
+    <div class="sol"></div>
+    <div class="rayo"></div>
+
+.sol {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #ffcc00, #ff8000);
+    box-shadow: 0 0 30px #ffcc00, 0 0 50px #ff8000;
+    animation: sol 10s linear infinite;
+  }
+  
+  @keyframes sol {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+  .rayo {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background-color: #fff;
+  transform-origin: bottom center;
+  animation: rayo 1s ease-in-out infinite alternate;
+}
+
+@keyframes rayo {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scaleX(1.5);
+    opacity: 0.8;
+  }
+}
+.sol {
+  background: radial-gradient(circle at 50% 50%, #ffcc00, #fff);
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), 0 0 50px rgba(255, 255, 0, 0.3);
+}
+.sol {
+  filter: brightness(120%);
+}
+@keyframes sol {
+  0% {
+    transform: translateX(-50%) rotate(0deg) translateY(0px);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg) translateY(50px);
+  }
+}
