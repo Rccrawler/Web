@@ -136,7 +136,8 @@ h1 {
     box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Aumenta la sombra al pasar el cursor */
 }
 
-/*-------------------------------buscador*/ 
+/*-------------------------------buscador*/
+/* From Uiverse.io by Smit-Prajapati */
 .input-container {
   display: flex;
   background: white;
